@@ -2,9 +2,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <title>Coordinates</title>
-  
+
   <link rel="stylesheet" href="./styles/app.css">
 </head>
 <body class="font-sans antialiased bg-zinc-100 text-zinc-600" x-data="coordinates">
@@ -12,7 +12,7 @@
       <div class="w-full max-w-2xl">
         <div class="flex bg-white items-center rounded shadow-lg px-2 py-2">
           <div class="w-8 h-8 border border-zinc-200 rounded-full mr-3 bg-zinc-100 flex items-center justify-center">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <svg class="w-5 h-5" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M14.916 11.707a3 3 0 1 0 -2.916 2.293"></path>
                 <path d="M11.991 21.485a1.994 1.994 0 0 1 -1.404 -.585l-4.244 -4.243a8 8 0 1 1 13.651 -5.351"></path>
                 <path d="M18 18m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
@@ -43,7 +43,7 @@
             <div class="grid grid-cols-3 gap-x-3 gap-y-2">
               <a class="inline-flex items-center justify-center px-4 py-2 bg-zinc-200 hover:bg-zinc-300 text-zinc-800 text-sm font-medium rounded-md" x-bind:href="coordinates && coordinates.toAppleMapsLink()" target="_blank">
                 Apple Maps
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <svg class="h-4 w-4 ml-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6"></path>
                   <path d="M11 13l9 -9"></path>
                   <path d="M15 4h5v5"></path>
@@ -51,7 +51,7 @@
               </a>
               <a class="inline-flex items-center justify-center px-4 py-2 bg-zinc-200 hover:bg-zinc-300 text-zinc-800 text-sm font-medium rounded-md" x-bind:href="coordinates && coordinates.toGoogleMapsLink()" target="_blank">
                 Google Maps
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <svg class="h-4 w-4 ml-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6"></path>
                   <path d="M11 13l9 -9"></path>
                   <path d="M15 4h5v5"></path>
@@ -59,7 +59,7 @@
               </a>
               <a class="inline-flex items-center justify-center px-4 py-2 bg-zinc-200 hover:bg-zinc-300 text-zinc-800 text-sm font-medium rounded-md" x-bind:href="coordinates && coordinates.toOpenStreetMapLink()" target="_blank">
                 Open Street Maps
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <svg class="h-4 w-4 ml-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6"></path>
                   <path d="M11 13l9 -9"></path>
                   <path d="M15 4h5v5"></path>
