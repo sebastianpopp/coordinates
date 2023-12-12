@@ -39,6 +39,10 @@ test('parses decimal minutes formats', () => {
     expect(decimalMinutes('54°10.698‘N 013°38.832‘E')).toEqual(new Coordinates(54.178300, 13.647200));
     expect(decimalMinutes('54°10,698‘N 013°38,832‘E')).toEqual(new Coordinates(54.178300, 13.647200));
 
+    // Single space, minutes with ’, leading zero
+    expect(decimalMinutes('54°10.698’N 013°38.832’E')).toEqual(new Coordinates(54.178300, 13.647200));
+    expect(decimalMinutes('54°10,698’N 013°38,832’E')).toEqual(new Coordinates(54.178300, 13.647200));
+
     // Minutes separated by dash
     expect(decimalMinutes('54-10.698N 013-38.832E')).toEqual(new Coordinates(54.178300, 13.647200));
 });
