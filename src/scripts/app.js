@@ -27,6 +27,15 @@ Alpine.data('coordinates', () => ({
             this.coordinates = coordinatesParser.hasCoordinates()
                 ? coordinatesParser.getCoordinates()
                 : null;
+
+            if (this.query !== '' && !coordinates.some(c => c.toDecimalMinutes() === this.query)) {
+                window._paq = window._paq || [];
+                _paq.push(['trackSiteSearch',
+                    this.query,
+                    false,
+                    this.coordinates === null ? 0 : 1
+                ]);
+            }
         });
     },
 
