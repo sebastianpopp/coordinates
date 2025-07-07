@@ -8,14 +8,13 @@ jobs:
     name: "Build"
     runs-on: ubuntu-latest
     steps:
-
     - name: "Checkout"
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: "Setup node"
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
-        node-version: '16'
+        node-version: '20'
 
     - name: "Build"
       run: |
@@ -25,15 +24,25 @@ jobs:
     - name: "Create CNAME file"
       run: echo "coordinates.popp.xyz" >> dist/CNAME
 
-    - name: "Stage Files"
-      run: git add -f dist
+    - name: "Upload artifact"
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: './dist'
 
-    - name: "Commit files"
-      run: |
-        git config --local user.email "actions@github.com"
-        git config --local user.name "GitHub Actions"
-        git commit -m "Build for deploy"
-
-    - name: "Publish"
-      run: |
-        git push origin `git subtree split --prefix dist main`:gh-pages --force
+  deploy:
+    name: "Deploy"
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    concurrency:
+      group: "pages"
+      cancel-in-progress: false
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Deploy to GitHub Pages"
+        id: deployment
+        uses: actions/deploy-pages@v4
