@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -34,7 +35,8 @@
                 <path d="M20.2 20.2l1.8 1.8"></path>
             </svg>
           </div>
-          <input type="text" class="flex-1 font-mono w-full text-lg outline-none" placeholder="Enter any coordinates" x-ref="query" x-model="query">
+          <label for="query" class="sr-only">Enter any coordinates</label>
+          <input id="query" type="text" class="flex-1 font-mono w-full text-lg outline-none" placeholder="Enter any coordinates" x-ref="query" x-model="query">
         </div>
 
         <template x-if="coordinates !== null">
