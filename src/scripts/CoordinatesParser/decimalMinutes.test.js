@@ -50,4 +50,7 @@ test('parses decimal minutes formats', () => {
 
     // Minutes separated by star
     expect(decimalMinutes('54*10.698 N , 13*38.832 E')).toEqual(new Coordinates(54.178300, 13.647200));
+
+    // Leading direction
+    expect(decimalMinutes('N 54°10.698\' E 13°38.832\'')).toEqual(new Coordinates(54.178300, 13.647200));
 });
