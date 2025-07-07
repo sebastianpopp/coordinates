@@ -6,16 +6,16 @@ export default function decimalMinutes (query) {
 
         '(\\d+)', // Latitude degrees
         '[-°*\\s]+',
-        '(\\d+[.,]\\d+)', // Latitude minutes
+        '(\\d+([.,]\\d+)?)', // Latitude minutes
         "['‘’]?",
         '\\s*',
         '([NS])', // Latitude direction
 
-        '[\\s,]*',
+        '[\\s,/]*',
 
         '(\\d+)', // Longitude degrees
         '[-°*\\s]+',
-        '(\\d+[.,]\\d+)', // Longitude minutes
+        '(\\d+([.,]\\d+)?)', // Longitude minutes
         "['‘’]?",
         '\\s*',
         '([EW])', // Longitude direction
@@ -33,9 +33,9 @@ export default function decimalMinutes (query) {
     const latMinutes = parseFloat(matches[2].replace(',', '.'));
     const latDirection = matches[3];
 
-    const lonDegrees = parseFloat(matches[4]);
-    const lonMinutes = parseFloat(matches[5].replace(',', '.'));
-    const lonDirection = matches[6];
+    const lonDegrees = parseFloat(matches[5]);
+    const lonMinutes = parseFloat(matches[6].replace(',', '.'));
+    const lonDirection = matches[7];
 
     let latDecimalDegrees = latDegrees + (latMinutes / 60);
     let lonDecimalDegrees = lonDegrees + (lonMinutes / 60);
