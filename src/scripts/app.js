@@ -6,11 +6,25 @@ Alpine.data('coordinates', () => ({
     coordinates: null,
 
     init() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('q') && params.get('q') !== null) {
+            this.query = params.get('q');
+        }
+
         this.$nextTick(() => {
             this.$refs.query.focus();
+            this.$refs.query.setSelectionRange(0, this.$refs.query.value.length);
         });
 
         Alpine.effect(() => {
+            const url = new URL(window.location);
+            if (this.query) {
+                url.searchParams.set('q', this.query);
+            } else {
+                url.searchParams.delete('q');
+            }
+            window.history.replaceState({}, '', url);
+
             const coordinatesParser = new CoordinatesParser(this.query);
 
             this.coordinates = coordinatesParser.hasCoordinates()
