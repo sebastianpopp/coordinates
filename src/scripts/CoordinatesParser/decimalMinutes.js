@@ -5,7 +5,7 @@ export default function decimalMinutes (query) {
         '^',
 
         '(\\d+)', // Latitude degrees
-        '[-°\\s]+',
+        '[-°*\\s]+',
         '(\\d+[.,]\\d+)', // Latitude minutes
         "['‘’]?",
         '\\s*',
@@ -14,7 +14,7 @@ export default function decimalMinutes (query) {
         '[\\s,]*',
 
         '(\\d+)', // Longitude degrees
-        '[-°\\s]+',
+        '[-°*\\s]+',
         '(\\d+[.,]\\d+)', // Longitude minutes
         "['‘’]?",
         '\\s*',
