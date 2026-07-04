@@ -7,13 +7,13 @@ export default function decimalDegrees (query) {
         '[°]?',
         '\\s*',
         '[ns]?',
-        '[\\s,]*',
+        '[\\s,/]*',
         '(-?\\d+([\\.,]\\d+)?)',
         '[°]?',
         '\\s*',
         '[ew]?',
         '$'
-    ].join(''));
+    ].join(''), 'i');
 
     const matches = query.match(regex);
 
